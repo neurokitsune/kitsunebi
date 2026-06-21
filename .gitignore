@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+*.local
+*.tsbuildinfo
+
+# Original full-res card art (~207MB) — kept locally, never committed.
+# Web-ready WebP copies are generated into public/cards/ by scripts/optimize-cards.mjs
+/be/
