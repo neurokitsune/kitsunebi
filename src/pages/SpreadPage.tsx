@@ -1,5 +1,6 @@
 import { useNav } from '../app/navigation'
 import { useLang } from '../i18n/LanguageContext'
+import { track } from '../analytics'
 import LangToggle from '../components/LangToggle'
 import type { UIKey } from '../i18n/translations'
 import type { SpreadKind } from '../reading/spreads'
@@ -38,7 +39,10 @@ export default function SpreadPage() {
             <button
               key={opt.kind}
               className="spread-card"
-              onClick={() => go('reading', { kind: opt.kind })}
+              onClick={() => {
+                track('spread_select', { kind: opt.kind }) // Event 3 — spread option
+                go('reading', { kind: opt.kind })
+              }}
             >
               <span className="spread-icon" aria-hidden="true">
                 {opt.icon}

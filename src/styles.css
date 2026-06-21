@@ -74,20 +74,129 @@ button { font-family: var(--font-ui); cursor: pointer; }
   padding: 7px 14px;
 }
 .lang-toggle button.active {
-  background: var(--accent);
-  color: #1a1003;
+  background: rgba(232, 161, 58, 0.16);
+  color: var(--accent-soft);
 }
 
 /* ── welcome ──────────────────────────────────────────────────────────── */
+.welcome { position: relative; overflow: hidden; }
+.welcome-top { position: relative; z-index: 2; }
+
+/* layered foxfire backdrop */
+.welcome-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.welcome-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  transform: scale(1.22);
+  transform-origin: 50% 28%;
+  filter: blur(2px) brightness(0.75) saturate(1.1);
+  opacity: 0.99;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, transparent 92%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, transparent 92%);
+}
+.welcome-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 70% at 50% 30%,
+    transparent 0%,
+    rgba(10, 7, 18, 0.55) 70%,
+    rgba(8, 6, 15, 0.85) 100%
+  );
+}
+.welcome-glow {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 138, 40, 0.32) 0%,
+    rgba(92, 160, 255, 0.1) 36%,
+    transparent 66%
+  );
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+.welcome-embers { position: absolute; inset: 0; }
+.ember {
+  position: absolute;
+  bottom: -14px;
+  border-radius: 50%;
+  opacity: 0;
+  animation-name: ember-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.filigree {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  opacity: 0.55;
+}
+.filigree.tl { top: 12px; left: 12px; }
+.filigree.br { bottom: 56px; right: 12px; }
+
 .welcome-main {
+  position: relative;
+  z-index: 2;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   text-align: center;
   gap: 10px;
-  padding: 24px 0;
+  padding: 24px 0 4vh;
+}
+.welcome-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-size: 11px;
+  margin: 10px 0 2px;
+}
+.welcome-divider span {
+  display: block;
+  width: 46px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent));
+}
+.welcome-divider span:last-child {
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+@keyframes ember-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  12% { opacity: 0.95; }
+  100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.9; transform: translate(-50%, -50%) scale(1.08); }
+}
+@keyframes brand-flicker {
+  0%, 100% {
+    text-shadow: 0 0 28px rgba(232, 161, 58, 0.5), 0 0 6px rgba(255, 160, 60, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 36px rgba(255, 150, 50, 0.75), 0 0 10px rgba(92, 160, 255, 0.35);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ember, .welcome-glow, .brand { animation: none; }
 }
 
 .welcome-eyebrow {
@@ -106,6 +215,7 @@ button { font-family: var(--font-ui); cursor: pointer; }
   letter-spacing: 0.02em;
   color: var(--accent-soft);
   text-shadow: 0 0 28px rgba(232, 161, 58, 0.45);
+  animation: brand-flicker 4.5s ease-in-out infinite;
 }
 
 .welcome-sub {
@@ -125,20 +235,43 @@ button { font-family: var(--font-ui); cursor: pointer; }
   opacity: 0.92;
   margin: 12px 0 28px;
 }
+.intro-solstice {
+  font-weight: 700;
+}
 
 /* ── buttons ──────────────────────────────────────────────────────────── */
+/* Framed sigil — a double-ruled gold frame with corner ticks, like a card border. */
 .btn-primary {
-  background: linear-gradient(180deg, var(--accent-soft), var(--accent));
-  color: #1a1003;
-  border: none;
-  border-radius: 999px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 16px 56px;
-  box-shadow: 0 8px 30px rgba(232, 161, 58, 0.35);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  position: relative;
+  background: rgba(232, 161, 58, 0.05);
+  color: var(--accent-soft);
+  border: 1px solid rgba(232, 161, 58, 0.42);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  padding: 15px 46px;
+  box-shadow:
+    inset 0 0 0 3px rgba(12, 8, 24, 0.6),
+    inset 0 0 0 4px rgba(232, 161, 58, 0.16);
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.btn-primary::before,
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--accent);
+  opacity: 0.85;
+}
+.btn-primary::before { left: 7px; top: 7px; border-right: 0; border-bottom: 0; }
+.btn-primary::after { right: 7px; bottom: 7px; border-left: 0; border-top: 0; }
+.btn-primary:hover {
+  background: rgba(232, 161, 58, 0.12);
+  border-color: var(--accent);
+  color: #ffe0b0;
 }
 .btn-primary:active { transform: translateY(1px) scale(0.99); }
 
@@ -268,6 +401,17 @@ button { font-family: var(--font-ui); cursor: pointer; }
 }
 .reading-ask { gap: 24px; }
 
+.reading-question {
+  text-align: center;
+  font-family: var(--font);
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--accent-soft);
+  max-width: 32ch;
+  margin: 0;
+}
+
 .question-input {
   width: 100%;
   background: var(--bg-2);
@@ -390,4 +534,45 @@ button { font-family: var(--font-ui); cursor: pointer; }
   line-height: 1.55;
   color: var(--accent-soft);
   margin: 6px 0 0;
+}
+
+/* ── desktop & tablet framing ─────────────────────────────────────────── */
+/* Mobile-first: on phones the app fills the screen. On wider screens it sits
+   as a centered "app panel" so it looks deliberate instead of a stretched
+   mobile column on empty space. */
+@media (min-width: 720px) {
+  body {
+    background:
+      radial-gradient(80% 60% at 50% 40%, #1a1030 0%, var(--bg) 70%) fixed,
+      var(--bg);
+  }
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+  }
+  .page {
+    width: 430px;
+    max-width: 430px;
+    height: min(880px, calc(100dvh - 56px));
+    min-height: 0;
+    border: 1px solid rgba(232, 161, 58, 0.22);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.6),
+      inset 0 0 80px rgba(0, 0, 0, 0.35);
+  }
+  /* Keep the single-card detail within the framed height. */
+  .detail-img {
+    width: auto;
+    height: min(440px, 52vh);
+  }
+}
+
+/* On very tall/large desktops, cap how big the panel grows. */
+@media (min-width: 720px) and (min-height: 1000px) {
+  .page { height: 900px; }
 }

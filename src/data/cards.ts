@@ -1,7 +1,7 @@
 import type { Card, Loc, Suit } from './types'
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  CARD TEXT — kitsunebi deck (Path of the Nine Tails)
+//  CARD TEXT - kitsunebi deck (Path of the Nine Tails)
 //  Each entry: name (EN classic / BE themed), meaning, and the oracle line `says`.
 //  Edit freely. Ids: "major-0".."major-21", "<suit>-1".."<suit>-14"
 //  for suit in wands | cups | swords | pentacles (11–14 = Page/Knight/Queen/King).
@@ -14,11 +14,11 @@ interface CardText {
 }
 
 const text: Record<string, CardText> = {
-  // ── Major Arcana — Path of the Nine Tails ───────────────────────────────
+  // ── Major Arcana - Path of the Nine Tails ───────────────────────────────
   'major-0': {
     name: { en: 'The Fool', be: 'Лісёнак' },
     meaning: {
-      en: 'The beginning of the path — a leap into the unknown with trust and childlike innocence. A wild fox kit steps into the world with nothing, fearless and untaught, led by instinct alone.',
+      en: 'The beginning of the path - a leap into the unknown with trust and childlike innocence. A wild fox kit steps into the world with nothing, fearless and untaught, led by instinct alone.',
       be: 'Пачатак шляху, скок у невядомае з даверам і дзіцячай наіўнасцю. Дзікі лісяня выходзіць у свет налегке, без страху і без дасведчанасці, ведзены адным чуццём.',
     },
     says: {
@@ -29,8 +29,8 @@ const text: Record<string, CardText> = {
   'major-1': {
     name: { en: 'The Magician', be: 'Трыкстэр' },
     meaning: {
-      en: 'Will, mastery and quickness of mind that turn intention into reality. The trickster fox holds foxfire and every element in his paws at once — all he needs is already with him.',
-      be: 'Воля, майстэрства і спрыт розуму, што ператварае задуму ў яву. Ліс-падманшчык трымае ў лапах лісі агонь і ўсе стыхіі адразу — усё, што трэба, ужо пры ім.',
+      en: 'Will, mastery and quickness of mind that turn intention into reality. The trickster fox holds foxfire and every element in his paws at once - all he needs is already with him.',
+      be: 'Воля, майстэрства і спрыт розуму, што ператварае задуму ў яву. Ліс-падманшчык трымае ў лапах лісі агонь і ўсе стыхіі адразу - усё, што трэба, ужо пры ім.',
     },
     says: {
       en: 'you have the power to create; act consciously and boldly.',
@@ -44,7 +44,7 @@ const text: Record<string, CardText> = {
       be: 'Інтуіцыя, таемнае веданне і маўчанне, у якім чуецца больш, чым у словах. Лісіца за заслонай захоўвае тое, што не кажуць уголас, і бачыць праз морак.',
     },
     says: {
-      en: 'listen to your inner voice — the answer is already within you.',
+      en: 'listen to your inner voice - the answer is already within you.',
       be: 'прыслухайся да ўнутранага голасу, адказ ужо ў табе.',
     },
   },
@@ -111,7 +111,7 @@ const text: Record<string, CardText> = {
     },
     says: {
       en: 'true strength lies in calm and tenderness, not in brute force.',
-      be: 'сапраўдная моц — у спакоі і пяшчоце, а не ў грубым націску.',
+      be: 'сапраўдная моц - у спакоі і пяшчоце, а не ў грубым націску.',
     },
   },
   'major-9': {
@@ -121,15 +121,15 @@ const text: Record<string, CardText> = {
       be: 'Адзінота, пошук, мудрасць і агеньчык у цемры. Затворнік на гары нясе лісі агонь замест ліхтара і свеціць сабе сам.',
     },
     says: {
-      en: 'step aside, listen to the silence — your answer is found there.',
-      be: 'адыдзі ўбок, прыслухайся да цішыні — там знойдзецца твой адказ.',
+      en: 'step aside, listen to the silence - your answer is found there.',
+      be: 'адыдзі ўбок, прыслухайся да цішыні - там знойдзецца твой адказ.',
     },
   },
   'major-10': {
     name: { en: 'The Wheel of Fortune', be: 'Кола Сонцавароту' },
     meaning: {
-      en: 'Fate, cycles, and the turning moment. The wheel of the solstice forever turns summer into winter and back — nothing stands still.',
-      be: 'Лёс, цыклы і паваротны міг. Кола сонцавароту вечна абарочвае лета ў зіму і назад — нішто не стаіць на месцы.',
+      en: 'Fate, cycles, and the turning moment. The wheel of the solstice forever turns summer into winter and back - nothing stands still.',
+      be: 'Лёс, цыклы і паваротны міг. Кола сонцавароту вечна абарочвае лета ў зіму і назад - нішто не стаіць на месцы.',
     },
     says: {
       en: 'the turn has come; accept the change of current and move with it.',
@@ -150,8 +150,8 @@ const text: Record<string, CardText> = {
   'major-12': {
     name: { en: 'The Hanged Man', be: 'Ліс у Сільцы' },
     meaning: {
-      en: 'A pause, sacrifice, a different view, and surrender. The fox caught in the snare goes still — and in that stillness sees the world turned over.',
-      be: 'Прыпынак, ахвяра, іншы погляд і здача. Ліс, што трапіў у сільца, замёр — і ў гэтай нерухомасці бачыць свет перавернутым.',
+      en: 'A pause, sacrifice, a different view, and surrender. The fox caught in the snare goes still - and in that stillness sees the world turned over.',
+      be: 'Прыпынак, ахвяра, іншы погляд і здача. Ліс, што трапіў у сільца, замёр - і ў гэтай нерухомасці бачыць свет перавернутым.',
     },
     says: {
       en: 'stop, let go of the struggle, look at everything anew.',
@@ -161,8 +161,8 @@ const text: Record<string, CardText> = {
   'major-13': {
     name: { en: 'Death', be: 'Лінька' },
     meaning: {
-      en: 'An ending, transformation, transition. The molt: the old pelt falls away to make room for the new — this is not death, but renewal.',
-      be: 'Канец, пераўтварэнне, пераход. Лінька: старая шкура сыходзіць, каб саступіць месца новай — гэта не смерць, а абнаўленне.',
+      en: 'An ending, transformation, transition. The molt: the old pelt falls away to make room for the new - this is not death, but renewal.',
+      be: 'Канец, пераўтварэнне, пераход. Лінька: старая шкура сыходзіць, каб саступіць месца новай - гэта не смерць, а абнаўленне.',
     },
     says: {
       en: 'release what is spent to make room for what is being born.',
@@ -187,15 +187,15 @@ const text: Record<string, CardText> = {
       be: 'Путы, залежнасць, цень і прага. Апантаны сам надзеў на сябе ланцуг і трымае яго за звычку.',
     },
     says: {
-      en: 'look at what holds you — and see that the key is in your own paw.',
-      be: 'разгледзь, што цябе трымае, — і ўбач, што ключ у тваёй жа лапе.',
+      en: 'look at what holds you - and see that the key is in your own paw.',
+      be: 'разгледзь, што цябе трымае, - і ўбач, што ключ у тваёй жа лапе.',
     },
   },
   'major-16': {
     name: { en: 'The Tower', be: 'Палаючая Святыня' },
     meaning: {
-      en: 'Sudden collapse, revelation, downfall. The burning shrine — a false foundation falls in a single night, baring the truth.',
-      be: 'Раптоўны крах, прасвятленне, абвал. Палаючая святыня — фальшывая апора рушыцца за адну ноч, агаляючы праўду.',
+      en: 'Sudden collapse, revelation, downfall. The burning shrine - a false foundation falls in a single night, baring the truth.',
+      be: 'Раптоўны крах, прасвятленне, абвал. Палаючая святыня - фальшывая апора рушыцца за адну ноч, агаляючы праўду.',
     },
     says: {
       en: 'what is built on lies must fall to set you free.',
@@ -209,8 +209,8 @@ const text: Record<string, CardText> = {
       be: 'Надзея, натхненне, абнаўленне і ціхае святло. Жамчужына душы свеціць пасля цемры, лагодная і чыстая.',
     },
     says: {
-      en: 'after the storm comes calm — trust, and heal.',
-      be: 'пасля буры прыходзіць спакой — давярай і лячыся.',
+      en: 'after the storm comes calm - trust, and heal.',
+      be: 'пасля буры прыходзіць спакой - давярай і лячыся.',
     },
   },
   'major-18': {
@@ -227,8 +227,8 @@ const text: Record<string, CardText> = {
   'major-19': {
     name: { en: 'The Sun', be: 'Сляпы Дождж' },
     meaning: {
-      en: 'Joy, clarity, success, and life itself. The sun-shower — sunlight through rain — is the pure, unclouded joy of being.',
-      be: 'Радасць, яснасць, поспех і само жыццё. Сляпы дождж — сонца праз дождж — чыстая, нічым не азмрочаная радасць быцця.',
+      en: 'Joy, clarity, success, and life itself. The sun-shower - sunlight through rain - is the pure, unclouded joy of being.',
+      be: 'Радасць, яснасць, поспех і само жыццё. Сляпы дождж - сонца праз дождж - чыстая, нічым не азмрочаная радасць быцця.',
     },
     says: {
       en: 'a bright time has come; let yourself rejoice openly.',
@@ -249,12 +249,12 @@ const text: Record<string, CardText> = {
   'major-21': {
     name: { en: 'The World', be: 'Дзевяціхвосты' },
     meaning: {
-      en: 'Completion, wholeness, fullness. The nine-tailed tenko — the path walked to its end, the circle closed.',
-      be: 'Завяршэнне, цэласнасць, паўната. Дзевяціхвосты тэнка — шлях пройдзены да канца, кола замкнулася.',
+      en: 'Completion, wholeness, fullness. The nine-tailed tenko - the path walked to its end, the circle closed.',
+      be: 'Завяршэнне, цэласнасць, паўната. Дзевяціхвосты тэнка - шлях пройдзены да канца, кола замкнулася.',
     },
     says: {
-      en: 'you have reached fullness; savor the result — and ready yourself for a new turn.',
-      be: 'ты дайшоў да поўні, цешся вынікам — і рыхтуйся да новага вітка.',
+      en: 'you have reached fullness; savor the result - and ready yourself for a new turn.',
+      be: 'ты дайшоў да поўні, цешся вынікам - і рыхтуйся да новага вітка.',
     },
   },
 
@@ -262,8 +262,8 @@ const text: Record<string, CardText> = {
   'wands-1': {
     name: { en: 'Ace of Wands', be: 'Туз агню' },
     meaning: {
-      en: 'A spark, inspiration, a beginning. Pure foxfire flares in the palm — the first surge of will and intention.',
-      be: 'Іскра, натхненне, пачатак. Чысты лісі агонь успыхвае ў далоні — першы парыў волі і задумы.',
+      en: 'A spark, inspiration, a beginning. Pure foxfire flares in the palm - the first surge of will and intention.',
+      be: 'Іскра, натхненне, пачатак. Чысты лісі агонь успыхвае ў далоні - першы парыў волі і задумы.',
     },
     says: {
       en: 'an idea has caught fire; seize it and act while it burns.',
@@ -273,8 +273,8 @@ const text: Record<string, CardText> = {
   'wands-2': {
     name: { en: 'Two of Wands', be: 'Двойка агню' },
     meaning: {
-      en: 'Choosing a path, planning. The fox stands over two trails, holding the fire — the plan exists; it is time to choose a direction.',
-      be: 'Выбар шляху, задума. Лісіца стаіць над дзвюма сцежкамі, трымаючы агонь, — план ёсць, час вырашаць напрамак.',
+      en: 'Choosing a path, planning. The fox stands over two trails, holding the fire - the plan exists; it is time to choose a direction.',
+      be: 'Выбар шляху, задума. Лісіца стаіць над дзвюма сцежкамі, трымаючы агонь, - план ёсць, час вырашаць напрамак.',
     },
     says: {
       en: "define your goal and choose a road; don't linger at the crossroads.",
@@ -284,8 +284,8 @@ const text: Record<string, CardText> = {
   'wands-3': {
     name: { en: 'Three of Wands', be: 'Тройка агню' },
     meaning: {
-      en: 'Expansion, awaiting the fruits. The first midsummer fires light up in the distance — the venture has spread wide.',
-      be: 'Пашырэнне, чаканне пладоў. Першыя купальскія вогнішчы загараюцца ўдалечыні — задума пайшла ўшыркі.',
+      en: 'Expansion, awaiting the fruits. The first midsummer fires light up in the distance - the venture has spread wide.',
+      be: 'Пашырэнне, чаканне пладоў. Першыя купальскія вогнішчы загараюцца ўдалечыні - задума пайшла ўшыркі.',
     },
     says: {
       en: 'the work is gaining pace; look far and hold your course.',
@@ -295,8 +295,8 @@ const text: Record<string, CardText> = {
   'wands-4': {
     name: { en: 'Four of Wands', be: 'Чацвёрка агню' },
     meaning: {
-      en: 'Celebration, home, joy. The midsummer bonfire and shared dancing under the blossom — a time of happiness and togetherness.',
-      be: 'Свята, дом, радасць. Купальскі касцёр і агульныя скокі пад квеценню — час шчасця і еднасці.',
+      en: 'Celebration, home, joy. The midsummer bonfire and shared dancing under the blossom - a time of happiness and togetherness.',
+      be: 'Свята, дом, радасць. Купальскі касцёр і агульныя скокі пад квеценню - час шчасця і еднасці.',
     },
     says: {
       en: "mark what you've achieved; share the joy with those close to you.",
@@ -306,8 +306,8 @@ const text: Record<string, CardText> = {
   'wands-5': {
     name: { en: 'Five of Wands', be: 'Пяцёрка агню' },
     meaning: {
-      en: 'Competition, friction. A spirited clash of wills around the fire — more game than war.',
-      be: 'Спаборніцтва, трэнні. Задорная сутычка воль вакол агню — больш гульня, чым вайна.',
+      en: 'Competition, friction. A spirited clash of wills around the fire - more game than war.',
+      be: 'Спаборніцтва, трэнні. Задорная сутычка воль вакол агню - больш гульня, чым вайна.',
     },
     says: {
       en: "the clash is unavoidable, but it tempers you; don't fear the friction.",
@@ -339,8 +339,8 @@ const text: Record<string, CardText> = {
   'wands-8': {
     name: { en: 'Eight of Wands', be: 'Васьмёрка агню' },
     meaning: {
-      en: 'Speed, news. Fire-messages streak across the sky like comets — everything is swift.',
-      be: 'Хуткасць, весткі. Агні-весткі ляцяць праз неба, як каметы, — усё імкліва.',
+      en: 'Speed, news. Fire-messages streak across the sky like comets - everything is swift.',
+      be: 'Хуткасць, весткі. Агні-весткі ляцяць праз неба, як каметы, - усё імкліва.',
     },
     says: {
       en: 'events are accelerating, news is near; act quickly.',
@@ -365,8 +365,8 @@ const text: Record<string, CardText> = {
       be: 'Цяжар, перагрузка. Ноша з дзесяці палаючых дрэўкаў гне спіну да зямлі.',
     },
     says: {
-      en: "you've taken on too much — share the load or let part of it go.",
-      be: 'ты ўзяў зашмат — падзялі цяжар або частку адпусці.',
+      en: "you've taken on too much - share the load or let part of it go.",
+      be: 'ты ўзяў зашмат - падзялі цяжар або частку адпусці.',
     },
   },
   'wands-11': {
@@ -410,7 +410,7 @@ const text: Record<string, CardText> = {
     },
     says: {
       en: 'rule boldly and inspire; your will is your scepter.',
-      be: 'кіруй смела і натхняй, твая воля — твой скіпетр.',
+      be: 'кіруй смела і натхняй, твая воля - твой скіпетр.',
     },
   },
 
@@ -422,15 +422,15 @@ const text: Record<string, CardText> = {
       be: 'Новае каханне, адкрытае сэрца. Чара перапаўняецца жывой вадой пачуцця, што льецца праз край.',
     },
     says: {
-      en: 'your heart is open — let love and tenderness in.',
-      be: 'сэрца адкрыта — упусці каханне і пяшчоту.',
+      en: 'your heart is open - let love and tenderness in.',
+      be: 'сэрца адкрыта - упусці каханне і пяшчоту.',
     },
   },
   'cups-2': {
     name: { en: 'Two of Cups', be: 'Двойка туману' },
     meaning: {
-      en: 'Union, a confession of love. An exchange of cups over a midsummer wreath on the water — two come together.',
-      be: 'Саюз, прызнанне ў каханні. Абмен чарамі над купальскім вянком на вадзе — двое сыходзяцца.',
+      en: 'Union, a confession of love. An exchange of cups over a midsummer wreath on the water - two come together.',
+      be: 'Саюз, прызнанне ў каханні. Абмен чарамі над купальскім вянком на вадзе - двое сыходзяцца.',
     },
     says: {
       en: 'mutual feeling is near; the joining of hearts is real.',
@@ -451,8 +451,8 @@ const text: Record<string, CardText> = {
   'cups-4': {
     name: { en: 'Four of Cups', be: 'Чацвёрка туману' },
     meaning: {
-      en: 'Apathy, the missed offering. Gifts set aside and a gaze turned away — the heart is numb with boredom.',
-      be: 'Апатыя, упушчанае. Адкінутыя дары і позірк убок — сэрца здранцвела ад нуды.',
+      en: 'Apathy, the missed offering. Gifts set aside and a gaze turned away - the heart is numb with boredom.',
+      be: 'Апатыя, упушчанае. Адкінутыя дары і позірк убок - сэрца здранцвела ад нуды.',
     },
     says: {
       en: "you're not noticing what's offered to you; wake up.",
@@ -466,8 +466,8 @@ const text: Record<string, CardText> = {
       be: 'Страта, шкадаванне. Праліта ў раку, але дзве чары яшчэ стаяць за спінай.',
     },
     says: {
-      en: 'the grief is real, but not all is lost — look back.',
-      be: 'гора рэальнае, але не ўсё страчана — азірніся.',
+      en: 'the grief is real, but not all is lost - look back.',
+      be: 'гора рэальнае, але не ўсё страчана - азірніся.',
     },
   },
   'cups-6': {
@@ -488,8 +488,8 @@ const text: Record<string, CardText> = {
       be: 'Ілюзіі, выбар, мроі. Сем відзежаў паўстаюць з туману, кожны вабіць па-свойму.',
     },
     says: {
-      en: 'not all dreams are equal — tell the real from the imagined.',
-      be: 'не ўсе мары роўныя — адрозні яву ад мроі.',
+      en: 'not all dreams are equal - tell the real from the imagined.',
+      be: 'не ўсе мары роўныя - адрозні яву ад мроі.',
     },
   },
   'cups-8': {
@@ -521,8 +521,8 @@ const text: Record<string, CardText> = {
       be: 'Гармонія, сямейная радасць. Сям’я радуецца пад вясёлкаю над ракою.',
     },
     says: {
-      en: 'the fullness of happiness is in those close to you — cherish this togetherness.',
-      be: 'поўня шчасця ў блізкіх — беражы гэтую еднасць.',
+      en: 'the fullness of happiness is in those close to you - cherish this togetherness.',
+      be: 'поўня шчасця ў блізкіх - беражы гэтую еднасць.',
     },
   },
   'cups-11': {
@@ -555,14 +555,14 @@ const text: Record<string, CardText> = {
     },
     says: {
       en: 'feel and empathize; your sensitivity is your strength.',
-      be: 'спачувай і адчувай, твая чуласць — твая сіла.',
+      be: 'спачувай і адчувай, твая чуласць - твая сіла.',
     },
   },
   'cups-14': {
     name: { en: 'King of Cups', be: 'Старэйшына туману' },
     meaning: {
-      en: 'Mastery over feeling. The elder holds the cup level without spilling — master of his own emotions.',
-      be: 'Улада над пачуццём. Стары трымае чару роўна, не разліваючы, — гаспадар сваіх эмоцый.',
+      en: 'Mastery over feeling. The elder holds the cup level without spilling - master of his own emotions.',
+      be: 'Улада над пачуццём. Стары трымае чару роўна, не разліваючы, - гаспадар сваіх эмоцый.',
     },
     says: {
       en: 'keep calm amid turmoil; govern your feelings wisely.',
@@ -578,8 +578,8 @@ const text: Record<string, CardText> = {
       be: 'Яснасць, прарыў, праўда. Клінок ісціны ўзыходзіць у лісім агні, рассякаючы морак.',
     },
     says: {
-      en: 'the truth is revealed — think clearly and act decisively.',
-      be: 'ісціна адкрылася — мыслі ясна і дзей рашуча.',
+      en: 'the truth is revealed - think clearly and act decisively.',
+      be: 'ісціна адкрылася - мыслі ясна і дзей рашуча.',
     },
   },
   'swords-2': {
@@ -589,15 +589,15 @@ const text: Record<string, CardText> = {
       be: 'Тупік, цяжкі выбар. Два скрыжаваныя клінкі ля грудзей, вочы пад павязкаю.',
     },
     says: {
-      en: "you're avoiding the decision — take off the blindfold and face the truth.",
-      be: 'ты пазбягаеш рашэння — здымі павязку і паглядзі праўдзе ў вочы.',
+      en: "you're avoiding the decision - take off the blindfold and face the truth.",
+      be: 'ты пазбягаеш рашэння - здымі павязку і паглядзі праўдзе ў вочы.',
     },
   },
   'swords-3': {
     name: { en: 'Three of Swords', be: 'Тройка шэпту' },
     meaning: {
-      en: 'Pain, heartbreak. Three blades pierce a red wreath — a wound to the heart.',
-      be: 'Боль, разрыў. Тры клінкі праколваюць чырвоны вянок — сардэчная рана.',
+      en: 'Pain, heartbreak. Three blades pierce a red wreath - a wound to the heart.',
+      be: 'Боль, разрыў. Тры клінкі праколваюць чырвоны вянок - сардэчная рана.',
     },
     says: {
       en: 'the pain is unavoidable; let it pass without running from it.',
@@ -622,8 +622,8 @@ const text: Record<string, CardText> = {
       be: 'Разлад, пустая перамога. Поле за табой, але сувязь разарваная.',
     },
     says: {
-      en: 'consider whether the win is worth its price — sometimes to win is to lose.',
-      be: 'падумай, ці вартая перамога цаны — часам выйграць значыць страціць.',
+      en: 'consider whether the win is worth its price - sometimes to win is to lose.',
+      be: 'падумай, ці вартая перамога цаны - часам выйграць значыць страціць.',
     },
   },
   'swords-6': {
@@ -651,12 +651,12 @@ const text: Record<string, CardText> = {
   'swords-8': {
     name: { en: 'Eight of Swords', be: 'Васьмёрка шэпту' },
     meaning: {
-      en: 'A trap, a mind bound. A ring of blades and bindings — a captivity that is mostly in the head.',
-      be: 'Пастка, скаванасць розуму. Кальцо клінкоў і путы — палон, які больш у галаве.',
+      en: 'A trap, a mind bound. A ring of blades and bindings - a captivity that is mostly in the head.',
+      be: 'Пастка, скаванасць розуму. Кальцо клінкоў і путы - палон, які больш у галаве.',
     },
     says: {
-      en: 'your cage is not as strong as it seems — you can get out.',
-      be: 'твая клетка не такая моцная, як здаецца, — ты можаш выйсці.',
+      en: 'your cage is not as strong as it seems - you can get out.',
+      be: 'твая клетка не такая моцная, як здаецца, - ты можаш выйсці.',
     },
   },
   'swords-9': {
@@ -673,12 +673,12 @@ const text: Record<string, CardText> = {
   'swords-10': {
     name: { en: 'Ten of Swords', be: 'Дзясятка шэпту' },
     meaning: {
-      en: 'Ruin, and the dawn after. Rock bottom — yet behind you the daybreak is already kindling.',
+      en: 'Ruin, and the dawn after. Rock bottom - yet behind you the daybreak is already kindling.',
       be: 'Крах і світанне пасля. Дно падзення, але за спінай ужо займаецца золак.',
     },
     says: {
-      en: "it can't get worse — the darkest hour comes before dawn.",
-      be: 'горш ужо не будзе — самы цёмны час перад світаннем.',
+      en: "it can't get worse - the darkest hour comes before dawn.",
+      be: 'горш ужо не будзе - самы цёмны час перад світаннем.',
     },
   },
   'swords-11': {
@@ -706,8 +706,8 @@ const text: Record<string, CardText> = {
   'swords-13': {
     name: { en: 'Queen of Swords', be: 'Лісіца шэпту' },
     meaning: {
-      en: 'Clear judgment, honesty. A sharp gaze, a raven on the shoulder — truth without embellishment.',
-      be: 'Ясны суд, сумленнасць. Востры позірк, крумкач на плячы — праўда без прыхарошвання.',
+      en: 'Clear judgment, honesty. A sharp gaze, a raven on the shoulder - truth without embellishment.',
+      be: 'Ясны суд, сумленнасць. Востры позірк, крумкач на плячы - праўда без прыхарошвання.',
     },
     says: {
       en: 'think soberly and speak plainly, without illusions.',
@@ -730,8 +730,8 @@ const text: Record<string, CardText> = {
   'pentacles-1': {
     name: { en: 'Ace of Pentacles', be: 'Туз ачага' },
     meaning: {
-      en: 'New abundance, a gift, an opportunity. A sun-coin glows in the palm amid the rye — a gift of the earth.',
-      be: 'Новы дастатак, дар, магчымасць. Сонца-манета свеціцца ў далоні сярод жыта — дар зямлі.',
+      en: 'New abundance, a gift, an opportunity. A sun-coin glows in the palm amid the rye - a gift of the earth.',
+      be: 'Новы дастатак, дар, магчымасць. Сонца-манета свеціцца ў далоні сярод жыта - дар зямлі.',
     },
     says: {
       en: 'a real opportunity is opening; take it and root it.',
@@ -763,8 +763,8 @@ const text: Record<string, CardText> = {
   'pentacles-4': {
     name: { en: 'Four of Pentacles', be: 'Чацвёрка ачага' },
     meaning: {
-      en: 'Grip, control, miserliness. Coins clutched to the chest — the fear of loss.',
-      be: 'Хватка, кантроль, скупасць. Манеты, прыціснутыя да грудзей, — страх страты.',
+      en: 'Grip, control, miserliness. Coins clutched to the chest - the fear of loss.',
+      be: 'Хватка, кантроль, скупасць. Манеты, прыціснутыя да грудзей, - страх страты.',
     },
     says: {
       en: "don't clench too tightly, or you'll choke the flow.",
@@ -778,8 +778,8 @@ const text: Record<string, CardText> = {
       be: 'Нястача, адрынутасць. Холад звонку цёплага акна, з якога цябе не пусцілі.',
     },
     says: {
-      en: 'a hard time, but help is closer than it seems — ask for it.',
-      be: 'цяжкі час, але дапамога бліжэй, чым здаецца — папрасі.',
+      en: 'a hard time, but help is closer than it seems - ask for it.',
+      be: 'цяжкі час, але дапамога бліжэй, чым здаецца - папрасі.',
     },
   },
   'pentacles-6': {
@@ -800,8 +800,8 @@ const text: Record<string, CardText> = {
       be: 'Цярпенне, павольны рост. Доўгае чаканне ўраджаю над спелым полем.',
     },
     says: {
-      en: "what's sown doesn't ripen at once — wait, and don't dig up the root.",
-      be: 'пасеянае спее не адразу — пачакай і не выкопвай корань.',
+      en: "what's sown doesn't ripen at once - wait, and don't dig up the root.",
+      be: 'пасеянае спее не адразу - пачакай і не выкопвай корань.',
     },
   },
   'pentacles-8': {
@@ -844,7 +844,7 @@ const text: Record<string, CardText> = {
       be: 'Вучоба, практычны пачатак. Лісяня з цікаўнасцю вывучае манету ў полі.',
     },
     says: {
-      en: 'begin learning a new craft — a small, practical step.',
+      en: 'begin learning a new craft - a small, practical step.',
       be: 'пачні вучыцца новаму рамяству, маленькі практычны крок.',
     },
   },
@@ -855,8 +855,8 @@ const text: Record<string, CardText> = {
       be: 'Упартасць, надзейнасць. Мерны, надзейны ход цераз палі, без спешкі.',
     },
     says: {
-      en: 'go slowly but without stopping — steadiness wins.',
-      be: 'ідзі павольна, але няспынна — сталасць перамагае.',
+      en: 'go slowly but without stopping - steadiness wins.',
+      be: 'ідзі павольна, але няспынна - сталасць перамагае.',
     },
   },
   'pentacles-13': {
@@ -867,7 +867,7 @@ const text: Record<string, CardText> = {
     },
     says: {
       en: 'tend to your own and your home; earthly care is your gift.',
-      be: 'дбай пра сваіх і свой дом, зямная клапатлівасць — твой дар.',
+      be: 'дбай пра сваіх і свой дом, зямная клапатлівасць - твой дар.',
     },
   },
   'pentacles-14': {
@@ -891,7 +891,7 @@ const SUIT_NAME: Record<Suit, Loc> = {
   pentacles: { en: 'Pentacles', be: 'Ачаг' },
 }
 
-const TBD: Loc = { en: '—', be: '—' }
+const TBD: Loc = { en: '-', be: '-' }
 
 function makeCard(suit: Suit, number: number): Card {
   const id = `${suit}-${number}`

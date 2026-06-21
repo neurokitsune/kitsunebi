@@ -3,6 +3,7 @@ import { useNav } from '../app/navigation'
 import { useLang } from '../i18n/LanguageContext'
 import LangToggle from '../components/LangToggle'
 import CardDetail from '../components/CardDetail'
+import { track } from '../analytics'
 import { drawCards, cardImageUrl } from '../reading/draw'
 import { SPREADS } from '../reading/spreads'
 import type { SpreadKind } from '../reading/spreads'
@@ -34,7 +35,15 @@ export default function ReadingPage() {
     setSelected(null)
   }
 
+  // Event 6 — the question the seeker typed (only when non-empty).
+  function submitQuestion() {
+    const q = question.trim()
+    if (q) track('question_asked', { question: q })
+    draw()
+  }
+
   function again() {
+    track('again_click', { spread: kind }) // Event 5 — Again
     setSelected(null)
     if (def.asksQuestion) {
       setCards(null)
@@ -68,7 +77,7 @@ export default function ReadingPage() {
             placeholder={t('questionPlaceholder')}
             autoFocus
           />
-          <button className="btn-primary" onClick={draw}>
+          <button className="btn-primary" onClick={submitQuestion}>
             {t('divine')}
           </button>
         </main>
@@ -91,9 +100,6 @@ export default function ReadingPage() {
         <Header onBack={onBack} />
         <main className="reading-main">
           {card && <CardDetail card={card} position={position} />}
-          <button className="btn-ghost again" onClick={again}>
-            ↺ {t('again')}
-          </button>
         </main>
         <footer className="page-footer">{t('madeBy')}</footer>
       </div>
@@ -105,14 +111,26 @@ export default function ReadingPage() {
     <div className="page reading-page">
       <Header onBack={back} />
       <main className="reading-main">
-        <h2 className="style-title">{t(TITLE[kind])}</h2>
+        {kind === 'question' && question.trim() ? (
+          <p className="reading-question">«{question.trim()}»</p>
+        ) : (
+          <h2 className="style-title">{t(TITLE[kind])}</h2>
+        )}
 
         <div className="spread-row">
           {drawn.map((card, i) => (
             <button
               key={card.id}
               className="draw-card"
-              onClick={() => setSelected(i)}
+              onClick={() => {
+                // Event 4 — card click
+                track('card_open', {
+                  card: card.id,
+                  position: def.positions[i],
+                  spread: kind,
+                })
+                setSelected(i)
+              }}
             >
               <span className="draw-pos">{t(def.positions[i])}</span>
               <img

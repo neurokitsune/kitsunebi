@@ -6,7 +6,7 @@ import type { ReactNode } from 'react'
 // drops the user back on the first screen (welcome). Back navigation works via an
 // in-memory stack.
 
-export type ScreenName = 'welcome' | 'style' | 'spread' | 'reading'
+export type ScreenName = 'welcome' | 'spread' | 'reading'
 
 export interface Screen {
   name: ScreenName
