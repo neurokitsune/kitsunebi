@@ -98,7 +98,7 @@ export default function ReadingPage() {
     return (
       <div className="page reading-page">
         <Header onBack={onBack} />
-        <main className="reading-main">
+        <main className="reading-main reading-single">
           {card && <CardDetail card={card} position={position} />}
         </main>
         <footer className="page-footer">{t('madeBy')}</footer>

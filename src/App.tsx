@@ -1,12 +1,17 @@
 import { useEffect } from 'react'
 import { useNav } from './app/navigation'
-import { trackScreen } from './analytics'
+import { trackScreen, trackDeviceOnce } from './analytics'
 import WelcomePage from './pages/WelcomePage'
 import SpreadPage from './pages/SpreadPage'
 import ReadingPage from './pages/ReadingPage'
 
 export default function App() {
   const { current } = useNav()
+
+  // Event 0 — device / session info, once per session.
+  useEffect(() => {
+    trackDeviceOnce()
+  }, [])
 
   // Event 1 — page/screen visits.
   useEffect(() => {

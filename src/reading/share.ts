@@ -200,6 +200,28 @@ export async function renderCardImage(
 
 export type ShareResult = 'shared' | 'downloaded'
 
+/**
+ * Whether this device can share an image file via the native share sheet.
+ *
+ * The web has no way to detect a specific installed app (e.g. Instagram), so
+ * this is the closest proxy: on a phone, a true result means the share sheet —
+ * where Instagram shows up if it's installed — is available. Returns false on
+ * desktop browsers without file-share support.
+ */
+export function canShareImage(): boolean {
+  if (typeof navigator === 'undefined' || typeof navigator.share !== 'function') {
+    return false
+  }
+  const nav = navigator as Navigator & { canShare?: (data?: ShareData) => boolean }
+  if (typeof nav.canShare !== 'function') return false
+  try {
+    const probe = new File([new Uint8Array(1)], 'probe.png', { type: 'image/png' })
+    return nav.canShare({ files: [probe] })
+  } catch {
+    return false
+  }
+}
+
 /** Render and share a single card. Uses the native share sheet, falls back to download. */
 export async function shareCard(
   card: Card,

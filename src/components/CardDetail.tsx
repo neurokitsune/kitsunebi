@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 import { cardImageUrl } from '../reading/draw'
-import { shareCard } from '../reading/share'
+import { shareCard, canShareImage } from '../reading/share'
 import { track } from '../analytics'
 import type { Card } from '../data/types'
 import type { UIKey } from '../i18n/translations'
@@ -17,6 +17,9 @@ type ShareState = 'idle' | 'busy' | 'saved' | 'error'
 export default function CardDetail({ card, position }: Props) {
   const { t, lang, loc } = useLang()
   const [shareState, setShareState] = useState<ShareState>('idle')
+  // Only offer Share where the device can open a native share sheet with the
+  // image (mobile) — that's where Instagram appears if it's installed.
+  const [canShare] = useState(canShareImage)
 
   async function onShare() {
     if (shareState === 'busy') return
@@ -71,6 +74,7 @@ export default function CardDetail({ card, position }: Props) {
       <p className="detail-meaning">{loc(card.meaning)}</p>
       <p className="detail-says">{loc(card.says)}</p>
 
+      {canShare && (
       <button
         className="btn-share"
         onClick={onShare}
@@ -89,6 +93,7 @@ export default function CardDetail({ card, position }: Props) {
         </svg>
         {shareLabel}
       </button>
+      )}
     </div>
   )
 }

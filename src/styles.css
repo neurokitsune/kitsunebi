@@ -407,6 +407,11 @@ button { font-family: var(--font-ui); cursor: pointer; }
 }
 .reading-ask { gap: 24px; }
 
+/* Single-card detail anchors to the bottom so the Share button sits just
+   above the footer instead of floating with a large gap; extra space goes
+   to the top, below the header. */
+.reading-single { justify-content: flex-end; padding-bottom: 4px; }
+
 .reading-question {
   text-align: center;
   font-family: var(--font);
