@@ -43,6 +43,16 @@ export const UI = {
   tapHint: { en: 'Tap a card to reveal it', be: 'Націсні на карту, каб адкрыць яе' },
   again: { en: 'Again', be: 'Яшчэ раз' },
   englishName: { en: 'English', be: 'Англійскі адпаведнік' },
+
+  // Share
+  share: { en: 'Share', be: 'Падзяліцца' },
+  sharing: { en: 'Preparing…', be: 'Рыхтуем…' },
+  shareSaved: { en: 'Image saved', be: 'Выява захавана' },
+  shareError: { en: 'Could not share', be: 'Не атрымалася' },
+  shareText: {
+    en: 'My card from kitsunebi — neurokitsune’s oracle',
+    be: 'Мая карта з kitsunebi — аракула neurokitsune',
+  },
 } satisfies Record<string, Record<Lang, string>>
 
 export type UIKey = keyof typeof UI

@@ -542,6 +542,30 @@ button { font-family: var(--font-ui); cursor: pointer; }
   margin: 6px 0 0;
 }
 
+.btn-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  background: rgba(232, 161, 58, 0.06);
+  color: var(--accent-soft);
+  border: 1px solid rgba(232, 161, 58, 0.38);
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  padding: 11px 22px;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.btn-share:hover {
+  background: rgba(232, 161, 58, 0.13);
+  border-color: var(--accent);
+  color: #ffe0b0;
+}
+.btn-share:active { transform: translateY(1px) scale(0.99); }
+.btn-share:disabled { opacity: 0.6; cursor: default; }
+.btn-share-icon { flex: none; }
+
 /* ── desktop & tablet framing ─────────────────────────────────────────── */
 /* Mobile-first: on phones the app fills the screen. On wider screens it sits
    as a centered "app panel" so it looks deliberate instead of a stretched
