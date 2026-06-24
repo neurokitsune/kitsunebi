@@ -53,6 +53,10 @@ export const UI = {
     en: 'My card from kitsunebi — neurokitsune’s oracle',
     be: 'Мая карта з kitsunebi — аракула neurokitsune',
   },
+  shareTextSpread: {
+    en: 'My spread from kitsunebi — neurokitsune’s oracle',
+    be: 'Мой расклад з kitsunebi — аракула neurokitsune',
+  },
 } satisfies Record<string, Record<Lang, string>>
 
 export type UIKey = keyof typeof UI

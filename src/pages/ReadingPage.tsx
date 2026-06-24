@@ -4,6 +4,7 @@ import { useLang } from '../i18n/LanguageContext'
 import LangToggle from '../components/LangToggle'
 import CardDetail from '../components/CardDetail'
 import { track } from '../analytics'
+import { shareSpread, canShareImage } from '../reading/share'
 import { drawCards, cardImageUrl } from '../reading/draw'
 import { SPREADS } from '../reading/spreads'
 import type { SpreadKind } from '../reading/spreads'
@@ -17,7 +18,7 @@ const TITLE: Record<SpreadKind, UIKey> = {
 }
 
 export default function ReadingPage() {
-  const { t, loc } = useLang()
+  const { t, loc, lang } = useLang()
   const { current, back } = useNav()
 
   const kind = (current.params?.kind as SpreadKind) ?? 'chance'
@@ -29,10 +30,39 @@ export default function ReadingPage() {
   )
   const [question, setQuestion] = useState('')
   const [selected, setSelected] = useState<number | null>(null)
+  const [shareState, setShareState] = useState<'idle' | 'busy' | 'saved' | 'error'>('idle')
+  const [canShare] = useState(canShareImage)
 
   function draw() {
     setCards(drawCards(def.count))
     setSelected(null)
+    setShareState('idle')
+  }
+
+  async function shareReading(drawn: Card[]) {
+    if (shareState === 'busy') return
+    setShareState('busy')
+    track('spread_share', { spread: kind }) // Event 8 — spread share
+    const heading =
+      kind === 'question' && question.trim()
+        ? `«${question.trim()}»`
+        : t(TITLE[kind])
+    try {
+      const result = await shareSpread(
+        drawn,
+        lang,
+        {
+          heading,
+          positions: def.positions.map((p) => t(p)),
+          madeBy: t('madeBy'),
+        },
+        t('shareTextSpread'),
+      )
+      setShareState(result === 'downloaded' ? 'saved' : 'idle')
+    } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') setShareState('idle')
+      else setShareState('error')
+    }
   }
 
   // Event 6 — the question the seeker typed (only when non-empty).
@@ -145,9 +175,38 @@ export default function ReadingPage() {
         </div>
 
         <p className="tap-hint">{t('tapHint')}</p>
-        <button className="btn-ghost again" onClick={again}>
-          ↺ {t('again')}
-        </button>
+
+        <div className="reading-actions">
+          <button className="btn-ghost again" onClick={again}>
+            ↺ {t('again')}
+          </button>
+          {canShare && (
+            <button
+              className="btn-share"
+              onClick={() => shareReading(drawn)}
+              disabled={shareState === 'busy'}
+            >
+              <svg
+                className="btn-share-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
+              </svg>
+              {shareState === 'busy'
+                ? t('sharing')
+                : shareState === 'saved'
+                  ? t('shareSaved')
+                  : shareState === 'error'
+                    ? t('shareError')
+                    : t('share')}
+            </button>
+          )}
+        </div>
       </main>
       <footer className="page-footer">{t('madeBy')}</footer>
     </div>

@@ -494,6 +494,15 @@ button { font-family: var(--font-ui); cursor: pointer; }
 }
 .again { margin-top: 4px; }
 
+.reading-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+.reading-actions .again { margin-top: 0; }
+.reading-actions .btn-share { margin-top: 0; }
+
 /* single-card detail */
 .detail {
   display: flex;
